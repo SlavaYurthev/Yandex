@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yandex Autocomplete
+ * 
+ * @author Slava Yurthev
+ */
+-->
+<layout>
+	<default>
+		<reference name="head">
+    		<action method="addJs" ifconfig="sy_yandex_autocomplete/general/active"><script>SY/yandex/autocomplete/autocomplete.js</script></action>
+    		<action method="addJs" ifconfig="sy_yandex_autocomplete/general/active"><script>SY/yandex/autocomplete/trick.js</script></action>
+    		<action method="addCss" ifconfig="sy_yandex_autocomplete/general/active"><script>SY/css/yandex/autocomplete.css</script></action>
+    	</reference>
+    	<reference name="before_body_end">
+    		<block type="sy_yandex_autocomplete/variables" template="SY/yandex/autocomplete/variables.phtml" />
+    	</reference>
+	</default>
+</layout>

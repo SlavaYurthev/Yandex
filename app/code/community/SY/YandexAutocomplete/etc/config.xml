@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yandex Autocomplete
+ * 
+ * @author Slava Yurthev
+ */
+-->
+<config>
+    <modules>
+        <SY_YandexAutocomplete>
+            <version>0.0.1</version>
+        </SY_YandexAutocomplete>
+    </modules>
+    <global>
+        <models>
+            <sy_yandex_autocomplete>
+                <class>SY_YandexAutocomplete_Model</class>
+            </sy_yandex_autocomplete>
+        </models>
+        <blocks>
+            <sy_yandex_autocomplete>
+                <class>SY_YandexAutocomplete_Block</class>
+            </sy_yandex_autocomplete>
+        </blocks>
+        <helpers>
+            <sy_yandex_autocomplete>
+                <class>SY_YandexAutocomplete_Helper</class>
+            </sy_yandex_autocomplete>
+        </helpers>
+    </global>
+    <frontend>
+        <routers>
+            <yandex_autocomplete>
+                <use>standard</use>
+                <args>
+                    <module>SY_YandexAutocomplete</module>
+                    <frontName>sy_yandex_autocomplete</frontName>
+                </args>
+            </yandex_autocomplete>
+        </routers>
+        <layout>
+            <updates>
+                <sy_yandex_autocomplete>
+                    <file>SY/yandex/autocomplete.xml</file>
+                </sy_yandex_autocomplete>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <sy_yandex_autocomplete translate="title">
+                                            <title>YANDEX AUTOCOMPLETE</title>
+                                        </sy_yandex_autocomplete>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <translate>
+            <modules>
+                <sy_yandex_autocomplete>
+                    <files>
+                        <default>SY/yandex/autocomplete.csv</default>
+                    </files>
+                </sy_yandex_autocomplete>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <sy_yandex_autocomplete>
+            <general>
+                <active>0</active>
+                <developer>Slava Yurthev</developer>
+            </general>
+        </sy_yandex_autocomplete>
+    </default>
+</config>

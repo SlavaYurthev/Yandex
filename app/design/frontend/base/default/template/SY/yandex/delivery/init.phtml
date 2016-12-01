@@ -1,0 +1,49 @@
+<?php
+/**
+ * Yandex Delivery
+ * 
+ * @author Slava Yurthev
+ */
+?>
+<?php $helper = Mage::helper('sy_yandex_delivery'); ?>
+<?php if($helper->getStoreConfig('active') == "1"): ?>
+	<?php $controller = Mage::getBaseUrl().Mage::getStoreConfig('sy_yandex_delivery/general/controller'); ?>
+	<?php if(strpos(Mage::helper('core/url')->getCurrentUrl(), $controller) !== false): ?>
+		<?php if((bool)$helper->getStoreConfig('sender_id') !== false && 
+			(bool)$helper->getStoreConfig('client_id') !== false && 
+			(bool)$helper->getStoreConfig('widget_key') !== false): ?>
+			<script type="text/javascript" src="https://delivery.yandex.ru/widget/loader?resource_id=<?php echo $helper->getStoreConfig('client_id'); ?>&sid=<?php echo $helper->getStoreConfig('sender_id'); ?>&key=<?php echo $helper->getStoreConfig('widget_key'); ?>"></script>
+			<script type="text/javascript">
+				sy.yandex.delivery.widget.weight = function(){
+					return "<?php echo $this->getWeight(); ?>";
+				}
+				sy.yandex.delivery.widget.cost = function(){
+					return "<?php echo $this->getSubtotal(); ?>";
+				}
+				sy.yandex.delivery.widget.totalItemsQuantity = function(){
+					return "<?php echo $this->getQty(); ?>";
+				}
+				<?php if($this->getQty()>0): ?>
+					<?php foreach($this->getItems() as $item): ?>
+						<?php $_product = Mage::getModel('catalog/product')->load($item->getProductId()); ?>
+						sy.yandex.delivery.items.push({
+							orderitem_name: "<?php echo $item->getName(); ?>",
+							orderitem_quantity: "<?php echo $item->getQty(); ?>",
+							orderitem_cost: "<?php echo $item->getPrice(); ?>"
+						});
+						var dimensions = [];
+						dimensions.push("<?php echo $_product->getHeight(); ?>");
+						dimensions.push("<?php echo $_product->getWidth(); ?>");
+						dimensions.push("<?php echo $_product->getLength(); ?>");
+						dimensions.push("<?php echo $item->getQty(); ?>");
+						sy.yandex.delivery.dimensions.push(dimensions);
+					<?php endforeach; ?>
+				<?php endif; ?>
+				ydwidget.ready(function(){
+					ydwidget.initCartWidget(sy.yandex.delivery.widget);
+				});
+			</script>
+			<div id="yandex_widget_container" class="yd-widget-modal"></div>
+		<?php endif; ?>
+	<?php endif; ?>
+<?php endif; ?>

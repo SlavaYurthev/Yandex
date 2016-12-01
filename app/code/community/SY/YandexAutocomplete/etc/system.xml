@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yandex Autocomplete
+ * 
+ * @author Slava Yurthev
+ */
+-->
+<config>
+    <tabs>
+        <sy translate="label">
+            <label>SY</label>
+            <sort_order>1</sort_order>
+        </sy>
+    </tabs>
+    <sections>
+        <sy_yandex_autocomplete translate="label" module="sy_yandex_autocomplete">
+            <label>YANDEX AUTOCOMPLETE</label>
+            <tab>sy</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label" module="sy_yandex_autocomplete">
+                    <label>Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Active</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </active>
+                        <sender_id translate="label">
+                            <label>SENDER ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sender_id>
+                        <client_id translate="label">
+                            <label>CLIENT ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </client_id>
+                        <developer translate="label">
+                            <label>Developer</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>sy_yandex_autocomplete/adminhtml_system_config_developer_renderer</frontend_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </developer>
+                    </fields>
+                </general>
+                <keys translate="label" module="sy_yandex_autocomplete">
+                    <label>Keys</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <autocomplete translate="label">
+                            <label>API KEY</label>
+                            <frontend_type>obscure</frontend_type>
+                            <comment>autocomplete</comment>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </autocomplete>
+                        <getIndex translate="label">
+                            <label>API KEY</label>
+                            <frontend_type>obscure</frontend_type>
+                            <comment>getIndex</comment>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </getIndex>
+                    </fields>
+                </keys>
+            </groups>
+        </sy_yandex_autocomplete>
+    </sections>
+</config>

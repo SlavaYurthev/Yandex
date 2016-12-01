@@ -1,0 +1,38 @@
+/**
+ * Yandex Autocomplete
+ * 
+ * @author Slava Yurthev
+ */
+div.sy-autocomplete {
+	position:absolute;
+	background-color:white;
+	margin:0;
+	padding:0;
+	z-index: 9999;
+	/*margin-top: 2px;*/
+}
+div.sy-autocomplete ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+div.sy-autocomplete ul li.selected { background-color: #ffb;}
+div.sy-autocomplete ul li {
+	list-style-type:none;
+	display:block;
+	margin:0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding:5px 10px;
+	height:32px;
+	line-height: 22px;
+	cursor:pointer;
+	border-left: 1px solid silver;
+	border-right: 1px solid silver;
+	box-sizing:border-box;
+}
+div.sy-autocomplete ul li:first-child,
+div.sy-autocomplete ul li+li{
+	border-bottom: 1px solid silver;
+}

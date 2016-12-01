@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yandex Delivery
+ * 
+ * @author Slava Yurthev
+ */
+-->
+<config>
+    <tabs>
+        <sy translate="label">
+            <label>SY</label>
+            <sort_order>1</sort_order>
+        </sy>
+    </tabs>
+    <sections>
+        <sy_yandex_delivery translate="label" module="sy_yandex_delivery">
+            <label>YANDEX DELIVERY</label>
+            <tab>sy</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label" module="sy_yandex_delivery">
+                    <label>Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label" module="sy_yandex_delivery">
+                            <label>Active</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </active>
+                        <sender_id translate="label">
+                            <label>SENDER ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sender_id>
+                        <client_id translate="label">
+                            <label>CLIENT ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </client_id>
+                        <widget_key translate="label">
+                            <label>WIDGET KEY</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </widget_key>
+                        <controller translate="label">
+                            <label>CONTROLLER</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </controller>
+                        <developer translate="label">
+                            <label>Developer</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>sy_yandex_delivery/adminhtml_system_config_developer_renderer</frontend_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </developer>
+                    </fields>
+                </general>
+            </groups>
+        </sy_yandex_delivery>
+        <carriers>
+            <groups>
+                <sy_yandex_delivery translate="label" module="sy_yandex_delivery">
+                    <label>Yandex</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Carrier Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <method_title translate="label">
+                            <label>Method Name</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </method_title>
+                        <sort_order translate="label">
+                            <label>Sort Order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                        <sallowspecific translate="label">
+                            <label>Ship to Applicable Countries</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>40</sort_order>
+                            <frontend_class>shipping-applicable-country</frontend_class>
+                            <source_model>adminhtml/system_config_source_shipping_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sallowspecific>
+                        <specificcountry translate="label">
+                            <label>Ship to Specific Countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <can_be_empty>1</can_be_empty>
+                        </specificcountry>
+                        <specificerrmsg translate="label">
+                            <label>Displayed Error Message</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificerrmsg>
+                        <developer translate="label">
+                            <label>Developer</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>sy_yandex_delivery/adminhtml_system_config_developer_renderer</frontend_model>
+                            <sort_order>999</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </developer>
+                    </fields>
+                </sy_yandex_delivery>
+            </groups>
+        </carriers>
+    </sections>
+</config>

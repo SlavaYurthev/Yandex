@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yandex Delivery
+ * 
+ * @author Slava Yurthev
+ */
+-->
+<config>
+    <modules>
+        <SY_YandexDelivery>
+            <version>0.0.3</version>
+        </SY_YandexDelivery>
+    </modules>
+    <global>
+    	<fieldsets>
+			<sales_convert_quote_address>
+				<house>
+					<to_order_address>*</to_order_address>
+				</house>
+			</sales_convert_quote_address>
+		</fieldsets>
+        <models>
+            <sy_yandex_delivery>
+                <class>SY_YandexDelivery_Model</class>
+            </sy_yandex_delivery>
+        </models>
+        <blocks>
+            <sy_yandex_delivery>
+                <class>SY_YandexDelivery_Block</class>
+            </sy_yandex_delivery>
+        </blocks>
+        <helpers>
+            <sy_yandex_delivery>
+                <class>SY_YandexDelivery_Helper</class>
+            </sy_yandex_delivery>
+        </helpers>
+        <resources>
+            <sy_yandex_delivery_setup>
+                <setup>
+                    <module>SY_YandexDelivery</module>
+                </setup>
+            </sy_yandex_delivery_setup>
+        </resources>
+    </global>
+    <frontend>
+        <routers>
+            <yandex_delivery>
+                <use>standard</use>
+                <args>
+                    <module>SY_YandexDelivery</module>
+                    <frontName>sy_yandex_delivery</frontName>
+                </args>
+            </yandex_delivery>
+        </routers>
+        <layout>
+            <updates>
+                <sy_yandex_delivery>
+                    <file>SY/yandex/delivery.xml</file>
+                </sy_yandex_delivery>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <sy_yandex_delivery translate="title">
+                                            <title>YANDEX DELIVERY</title>
+                                        </sy_yandex_delivery>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <translate>
+            <modules>
+                <sy_yandex_delivery>
+                    <files>
+                        <default>SY/yandex/delivery.csv</default>
+                    </files>
+                </sy_yandex_delivery>
+            </modules>
+        </translate>
+    </adminhtml>
+    <default>
+        <sy_yandex_delivery>
+            <general>
+                <active>0</active>
+                <controller>checkout/onepage</controller>
+                <developer>Slava Yurthev</developer>
+            </general>
+        </sy_yandex_delivery>
+        <carriers>
+            <sy_yandex_delivery>
+                <active>0</active>
+                <sort_order>0</sort_order>
+                <sallowspecific>1</sallowspecific>
+                <specificcountry>RU</specificcountry>
+                <model>sy_yandex_delivery/carrier_delivery</model>
+                <title>Яндекс</title>
+                <specificerrmsg>Этот способ доставки на текущий момент не доступен. Если вы желаете, чтобы мы доставили заказ Новой Почтой, обратитесь к менеджеру интернет-магазина.</specificerrmsg>
+                <method_title>Выбрать</method_title>
+                <developer>Slava Yurtev</developer>
+            </sy_yandex_delivery>
+        </carriers>
+    </default>
+</config>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Yandex Delivery
+ * 
+ * @author Slava Yurthev
+ */
+-->
+<layout>
+	<default>
+		<reference name="head">
+    		<action method="addJs" ifconfig="carriers/sy_yandex_delivery/active"><script>SY/yandex/delivery/delivery.js</script></action>
+    		<action method="addJs" ifconfig="carriers/sy_yandex_delivery/active"><script>SY/yandex/delivery/trick.js</script></action>
+    	</reference>
+        <reference name="after_body_start">
+            <block type="sy_yandex_delivery/cleaner" />
+        </reference>
+    	<reference name="before_body_end">
+    		<block type="sy_yandex_delivery/init" template="SY/yandex/delivery/init.phtml" />
+    	</reference>
+	</default>
+</layout>
