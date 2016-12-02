@@ -26,7 +26,7 @@ sy.yandex.autocomplete = {
 						// postcode trigger
 						$(element).addEventListener("change", function(event){
 							sy.yandex.autocomplete.trigger(group);
-							sy.yandex.autocomplete.onAddressChange();
+							sy.yandex.autocomplete.onAddressChange(group);
 						}, false);
 					break;
 					case 'street1':
@@ -36,7 +36,7 @@ sy.yandex.autocomplete = {
 						// postcode trigger
 						$(element).addEventListener("change", function(event){
 							sy.yandex.autocomplete.trigger(group);
-							sy.yandex.autocomplete.onAddressChange();
+							sy.yandex.autocomplete.onAddressChange(group);
 						}, false);
 					break;
 					case 'house':
@@ -46,7 +46,7 @@ sy.yandex.autocomplete = {
 						// postcode trigger
 						$(element).addEventListener("change", function(event){
 							sy.yandex.autocomplete.trigger(group);
-							sy.yandex.autocomplete.onAddressChange();
+							sy.yandex.autocomplete.onAddressChange(group);
 						}, false);
 					break;
 					case 'postcode':
