@@ -49,8 +49,16 @@ sy.yandex.delivery = {
 			priceBox.addClassName('price');
 			priceBox.update(delivery.costWithRules+' руб.');
 			var label = delivery.delivery.name+' - '+priceBox.outerHTML;
-			$('s_method_sy_yandex_delivery_widget').up().select('label').first().update(label);
-			$('s_method_sy_yandex_delivery_widget').checked = true;
+			var labelBox = $$('label[for="s_method_sy_yandex_delivery_widget"]').first();
+			var input = $('s_method_sy_yandex_delivery_widget');
+			// Fix for custom radio box when input inside label
+			labelBox.childElements().each(function(el){
+				if(el.getAttribute('type') == 'radio'){
+					label += el.outerHTML;
+				}
+			});
+			labelBox.update(label);
+			input.checked = true;
 			new Ajax.Request(sy.yandex.delivery.controller+'update', {
 				method: 'post',
 			    parameters: {
